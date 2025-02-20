@@ -1,0 +1,23 @@
+@import '../lib/codemirror/style.css';
+@import '../lib/codemirror.css';
+@import '../lib/codemirror/material-ocean.css';
+@import '../addon/hint/show-hint.css';
+@import '../addon/dialog/dialog.css';
+@import '../addon/search/matchesonscrollbar.css';
+@import '../addon/fold/foldgutter.css';
+
+.cm-matchhighlight {
+    background-color: rgba(252, 212, 137, 0.322)
+}
+
+.CodeMirror-selection-highlight-scrollbar {
+    background-color: green
+}
+
+.CodeMirror-scroll, .CodeMirror-sizer, .CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber {
+    box-sizing: content-box !important;
+}
+
+.CodeMirror-hints {
+    z-index: 1000 !important;
+}

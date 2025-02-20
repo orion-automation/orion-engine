@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/org/camunda/bpm/engine/db/liquibase/camunda-changelog.xml
+  - includeAll:
+      path: db/schema

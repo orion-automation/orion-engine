@@ -1,0 +1,34 @@
+{
+  "name": "Eorion",
+  "uri": "",
+  "prefix": "eorion",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "types": [
+    {
+      "name": "ExecutionListener",
+      "extends": [ "camunda:ExecutionListener" ],
+      "isAbstract": true,
+      "properties": [
+        {
+          "name": "order",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "TaskListener",
+      "extends": [ "camunda:TaskListener" ],
+      "isAbstract": true,
+      "properties": [
+        {
+          "name": "order",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'fa-bpmn';
+    src: url('fontawesome-free-6.6.0-web/webfonts/fa-regular-400.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fa-bpmn-solid';
+    src: url('fontawesome-free-6.6.0-web/webfonts/fa-solid-900.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="bpmn-icon-"]:before, [class*=" bpmn-icon-"]:before {
+    font-family: "bpmn";
+    font-style: normal;
+    font-weight: normal;
+    speak: never;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    /* margin-right: .2em; */
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    /* margin-left: .2em; */
+
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.bpmn-icon-business-rule:before { content: '\f0ce' !important;font-family: 'fa-bpmn-solid' !important; } /* '' */   /* pro*/
+/*.bpmn-icon-intermediate-event-catch-error:before { content: '\f0e7' !important;font-family: 'fa-bpmn' !important; } !* '' *!*/
+/*.bpmn-icon-end-event-error:before { content: '\f0e7' !important;font-family: 'fa-bpmn-solid' !important; } !* '' *!*/
+/*.bpmn-icon-intermediate-event-catch-timer:before { content: '\e29e' !important;font-family: 'fa-bpmn' !important; } !* '' *!*/
+.bpmn-icon-manual:before { content: '\f256' !important;font-family: 'fa-bpmn' !important; } /* '' */
+.bpmn-icon-receive:before { content: '\f0e0' !important;font-family: 'fa-bpmn' !important; } /* '' */
+.bpmn-icon-script:before { content: '\f121' !important;font-family: 'fa-bpmn-solid' !important; } /* '' */   /* pro*/
+.bpmn-icon-send:before { content: '\f0e0' !important;font-family: 'fa-bpmn-solid' !important; } /* '' */
+.bpmn-icon-service:before { content: '\f013' !important;font-family: 'fa-bpmn-solid' !important; } /* '' */  /* pro*/
+.bpmn-icon-user:before { content: '\f007' !important;font-family: 'fa-bpmn' !important; } /* '' */

@@ -1,0 +1,36 @@
+@media print {
+
+    @page {
+        size: auto !important;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+
+    .formioClass {
+        margin: 15px 15px 50px !important;
+    }
+
+    .form-control {
+        border: none !important;
+        font-weight: bold !important;
+    }
+
+    .input-group-text {
+        border: none !important;
+    }
+}
+
+.formioClass {
+    margin: 15px 15px 50px !important;
+}
+
+.form-control {
+    border: none !important;
+    font-weight: bold !important;
+}
+
+.input-group-text {
+    border: none !important;
+}

@@ -1,0 +1,80 @@
+$input-disabled-bg: #fafafa;
+
+.formioClass {
+  @import "bootstrap/scss/bootstrap.scss";
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  .input-group-text.readonly-input {
+    border: $input-border-width solid #fafafa;
+    background-color: #fafafa;
+  }
+
+  .form-control {
+    &:disabled,
+    &[readonly] {
+      border: $input-border-width solid #fafafa;
+    }
+  }
+
+  .fc-theme-standard a {
+    color: black;
+  }
+
+  .formio-errors .error {
+    background-color: transparent !important;
+  }
+
+  .fc .fc-button .fc-icon {
+    line-height: 0.7;
+  }
+
+  .formio-component {
+    font-size: 14px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    min-height: 38px;
+    font-weight: bold
+  }
+
+  .nav-tabs .nav-link {
+    font-weight: bold;
+  }
+
+  .input-group-text {
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .col-form-label {
+    color: slategray;
+  }
+}
+
+.formio-dialog {
+  @import "bootstrap/scss/bootstrap.scss";
+
+
+  .input-group-text.readonly-input {
+    border: $input-border-width solid #fafafa;
+    background-color: #fafafa;
+  }
+
+  .form-control {
+    &:disabled,
+    &[readonly] {
+      border: $input-border-width solid #fafafa;
+    }
+  }
+
+  .input-group-text {
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .col-form-label {
+    color: slategray;
+  }
+}

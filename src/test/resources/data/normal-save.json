@@ -1,0 +1,21 @@
+{
+  "name": "name",
+  "coeCode": "coeCode",
+  "tags": "tags",
+  "icon": "icon",
+  "editGroup": "editGroup",
+  "userGroup": "userGroup",
+  "owner": "owner",
+  "tenant": "tenant",
+  "type": "type",
+  "category": "category",
+  "configJson": {
+    "var1": "var1"
+  },
+  "appKey": "key",
+  "description": "description",
+  "versionTag": "versionTag",
+  "target": null,
+  "targetApplicationId": null,
+  "accessUsers": "demo,test"
+}

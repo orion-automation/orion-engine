@@ -1,0 +1,35 @@
+spring:
+  liquibase:
+    change-log: classpath:changelog/master-changelog.yaml
+    enabled: true
+camunda:
+  bpm:
+    auto-deployment-enabled: false
+    job-execution:
+      enabled: false
+    generic-properties:
+      properties:
+        history-time-to-live: P365D
+        enforce-history-time-to-live: false
+    run:
+      cors:
+        enabled: true
+    database:
+      schema-update: false
+    admin-user:
+      id: demo
+      password: demo
+      first-name: demo
+eorion:
+  bo:
+    engine:
+      init:
+        group-id: demo
+        group-name: demo
+        tenant-id: demo
+logging:
+  level:
+    root: info
+    com.eorion: debug
+    org.camunda: debug
+    org.apache.ibatis: debug

@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "bpmnlint:recommended",
+    "plugin:eorion/recommended"
+  ],
+  "rules":{
+    "bpmnlint/label-required":"off",
+    "eorion/call-activity-self":"warn"
+  }
+}

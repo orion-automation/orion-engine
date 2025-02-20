@@ -1,0 +1,6 @@
+div.layout-content div.v-btn,
+div.layout-content button.v-btn {
+    text-transform: none;
+    border-radius: 0px;
+    border-right: 1px solid #e6e4e6;
+}

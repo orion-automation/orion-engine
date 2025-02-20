@@ -1,0 +1,17 @@
+{
+  "tenant": "tenant",
+  "coeCode": "coe",
+  "userId": null,
+  "groups": [
+    "user1",
+    "user2",
+    "user3"
+  ],
+  "type": "type",
+  "category": "category",
+  "nameLike": "name",
+  "appKeysIn": ["key1","key2","key3"],
+  "status": "0",
+  "versionTag": "versionTag",
+  "accessUser": "demo"
+}

@@ -1,0 +1,29 @@
+spring:
+  liquibase:
+    change-log: classpath:changelog/master-changelog.yaml
+    enabled: true
+mybatis-plus:
+  mapper-locations: classpath*:**/*mapper/*Mapper.xml
+
+eorion:
+  bo:
+    engine:
+      init:
+        group-id: demo
+        group-name: demo
+        tenant-id: demo
+
+camunda:
+  bpm:
+    webapp:
+      index-redirect-enabled: false
+    auto-deployment-enabled: false
+    run:
+      cors:
+        enabled: false
+    database:
+      schema-update: false
+    admin-user:
+      id: demo
+      password: demo
+      first-name: demo
