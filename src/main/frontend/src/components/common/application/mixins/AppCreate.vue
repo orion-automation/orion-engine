@@ -79,7 +79,7 @@ export default {
       // 设置面包屑
       if (this.idBreadcrumbs && this.idBreadcrumbs[1]) {
         this.idBreadcrumbs[1].text = this.process.name;
-        this.idBreadcrumbs[1].href = `#/application/list?defaultSearchVal=${this.process.name}`;
+        this.idBreadcrumbs[1].href = `#/task/application/list?defaultSearchVal=${this.process.name}`;
         let { count } = await instanceRequest.postHistoryInstancesCount({
           processDefinitionKey: this.process.key,
           unfinished: true,
