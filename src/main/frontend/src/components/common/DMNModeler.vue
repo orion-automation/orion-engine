@@ -77,6 +77,11 @@ export default {
               parent: $(`#properties-panel-${this.refSuffix}`).length>0?`#properties-panel-${this.refSuffix}`:`.properties-panel-${this.refSuffix}`,
             },
           },
+          additionalModules: [
+            DmnPropertiesPanelModule,
+            DmnPropertiesProviderModule,
+            CamundaPropertiesProviderModule
+          ]
           keyboard: {
             bindTo: window
           },
