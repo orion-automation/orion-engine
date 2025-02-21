@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import "bootstrap/dist/css/bootstrap.css";
+import "./assets/custom-bootstrap.scss";
 
 export default {
   name: "App",

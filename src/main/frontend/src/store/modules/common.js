@@ -18,6 +18,10 @@ const state = {
   xDetailRightDrawer: false,
   xDetailName: "",
   createInstanceVars: [],
+  bpmnElements: [],
+  resourceNotDialog: false,
+  resourceNotRedirectUrl: "",
+  nocoConfigLoading: true,
 };
 
 const mutations = {
@@ -66,10 +70,23 @@ const mutations = {
   },
   SET_CREATE_INSTANCE_VARS(state, value) {
     state.createInstanceVars = value;
-  }
+  },
+  SET_RESOURCE_DIALOG(state, payload) {
+    state.resourceNotDialog = payload.show;
+    state.resourceNotRedirectUrl = payload.redirectUrl;
+  },
+  SET_NOCO_CONFIG_LOADING(state, show) {
+    state.nocoConfigLoading = show;
+  },
 };
 
 const actions = {
+  setResourceDialog({ commit }, payload) {
+    commit("SET_RESOURCE_DIALOG", payload);
+  },
+  setNocoConfigLoading({ commit }, loading){
+    commit("SET_NOCO_CONFIG_LOADING", loading);
+  },
   setCreateInstanceVars({ commit }, value) {
     commit("SET_CREATE_INSTANCE_VARS", value);
   },
@@ -143,6 +160,15 @@ const getters = {
   getIsLoading(state) {
     return state.isLoading;
   },
+  getShowResourceDialog(state) {
+    return state.resourceNotDialog;
+  },
+  getReDirectUrlResourceDialog(state) {
+    return state.resourceNotRedirectUrl;
+  },
+  isNocoConfigLoading:state=>{
+    return !!state.nocoConfigLoading;
+  }
 };
 
 export default {

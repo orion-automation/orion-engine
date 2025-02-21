@@ -244,6 +244,17 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-dialog v-model="$store.getters['common/getShowResourceDialog']" persistent width="500">
+      <v-card>
+        <v-card-title style="color: #444262">{{ $t('noAuth') }}</v-card-title>
+        <v-card-text>{{ $t('noAuthInfo') }}</v-card-text>
+        <v-card-actions style="padding-bottom: 16px">
+          <v-spacer/>
+          <v-btn @click="$store.dispatch('common/setResourceDialog', {show: false})" text>{{ $t('back') }}</v-btn>
+          <v-btn color="#FF7754" @click="logout" class="white--text"><v-icon left color="white">mdi-logout-variant</v-icon>{{ $t('loginOtherAccount') }}</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-bottom-sheet v-model="showMenu" inset>
       <v-sheet class="setting">
         <div class="d-flex" style="margin: 0 18px; padding-top: 18px">
