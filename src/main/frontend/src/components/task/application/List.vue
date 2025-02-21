@@ -545,10 +545,10 @@ export default {
       return filter;
     },
     async selectProcess(process) {
-      let response = await processRequest.getEnhancementProcessStatistics(process.key);
+      let response = await processRequest.getProcessVersions(process.key);
 
-      process.versions = response.sort((version1, version2) => {
-        return version2.version - version1.version;
+      process.versions = response.sort(function (a, b) {
+        return b.version - a.version;
       });
       this.version = process.versions.find(
         (version) => version.version == process.version

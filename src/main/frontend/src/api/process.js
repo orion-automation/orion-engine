@@ -361,15 +361,6 @@ export default {
     });
   },
 
-  async getEnhancementProcessStatistics(processDefKey) {
-    var definitions = await request({
-      baseURL: process.env.VUE_APP_ENHANCEMENT_API,
-      url: `process-definition/statistics/${processDefKey}`,
-      method: "get",
-    });
-    return definitions;
-  },
-
   async getProcessCount(filter) {
     return request({
       url: "process-definition/count",

@@ -458,13 +458,10 @@ export default {
   },
   methods: {
     async enterProcessDetailByKey(processDefKey) {
-      let versions = await processRequest.getEnhancementProcessStatistics(processDefKey);
-      versions.sort(function (a, b) {
-        return b.version - a.version;
-      });
+      let processDef = await processRequest.getProcessDefinitionByKey(processDefKey);
       this.$router.push({
         name: "process-detail",
-        params: {id: versions[0].id},
+        params: {id: processDef.id},
       });
     },
     async enterDecisionDetailByKey(dmnDefKey) {
