@@ -81,7 +81,7 @@ export default {
             DmnPropertiesPanelModule,
             DmnPropertiesProviderModule,
             CamundaPropertiesProviderModule
-          ]
+          ],
           keyboard: {
             bindTo: window
           },
