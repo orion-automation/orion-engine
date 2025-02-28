@@ -761,7 +761,7 @@ export default {
     },
     goIndex() {
       this.noTaskDialog.display=false;
-      this.$router.replace("/home/index");
+      this.$router.replace("/task/home");
     },
     onRejectTask() {
       let self = this;
