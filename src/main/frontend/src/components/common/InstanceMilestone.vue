@@ -1,28 +1,28 @@
 <template>
   <v-stepper v-model="step" height="100" style="overflow-x: auto;box-shadow: none;background-color: #eceff145" tile flat
-  v-if="milestones&&milestones.length>0">
+             v-if="milestones&&milestones.length>0">
     <v-stepper-header
-      style="height: 100px;justify-content: flex-start;flex-wrap: nowrap;width: fit-content;box-shadow: none">
+        style="height: 100px;justify-content: flex-start;flex-wrap: nowrap;width: fit-content;box-shadow: none">
       <template v-for="(milestone,index) in milestones">
         <v-stepper-step
-          :editable="milestone.status.startTime&&!milestone.status.endTime"
-          edit-icon="mdi-play"
-          complete-icon="mdi-check"
-          style="flex-basis: auto;width: fit-content;min-width: 220px"
-          :complete="milestone.status.startTime&&true"
-          :color="(milestone.status.startTime&&!milestone.status.endTime)?'#FF7754':(milestone.status.startTime?'#312651':'#B1ABB6')"
-          :key="`milestone-${instance.id}-${milestone.activityId}-step`"
-          :step="milestone.milestoneSeq"
+            :editable="milestone.status.startTime&&!milestone.status.endTime"
+            edit-icon="mdi-play"
+            complete-icon="mdi-check"
+            style="flex-basis: auto;width: fit-content;min-width: 220px"
+            :complete="milestone.status.startTime&&true"
+            :color="(milestone.status.startTime&&!milestone.status.endTime)?'#FF7754':(milestone.status.startTime?'#312651':'#B1ABB6')"
+            :key="`milestone-${instance.id}-${milestone.activityId}-step`"
+            :step="milestone.milestoneSeq"
         >
           <div class="d-flex flex-column" style="gap: 7px;justify-items: left;font-size: 16px;color: #312651">
             <span>{{ milestone.milestoneName || milestone.activityName }}</span>
             <span
-              style="font-size: 12px;color: #83829A"
-              v-if="milestone.status.startTime">{{ $t('start') }}:{{ utils.formatDateTime(milestone.status.startTime, "YYYY-MM-DD HH:mm")
+                style="font-size: 12px;color: #83829A"
+                v-if="milestone.status.startTime">{{ $t('start') }}:{{ utils.formatDateTime(milestone.status.startTime, "YYYY-MM-DD HH:mm")
               }}</span>
             <span
-              style="font-size: 12px;color: #83829A"
-              v-if="milestone.status.endTime">{{ $t('end') }}:{{ utils.formatDateTime(milestone.status.endTime, "YYYY-MM-DD HH:mm")
+                style="font-size: 12px;color: #83829A"
+                v-if="milestone.status.endTime">{{ $t('end') }}:{{ utils.formatDateTime(milestone.status.endTime, "YYYY-MM-DD HH:mm")
               }}</span>
           </div>
         </v-stepper-step>
@@ -63,12 +63,12 @@ export default {
       if (!self.instance.id||!self.instance.processDefinitionId){
         return;
       }
-      let milestones = await processRequest.getEnhancementProcessMilestoneByDefId(self.instance.processDefinitionId);
+      let milestones = [];
       let statistics = await instanceRequest.getHistoryActivityInstances(
-        {
-          processInstanceId: self.instance.id,
-          sorting: [{ "sortBy": "startTime", "sortOrder": "desc" }]
-        }
+          {
+            processInstanceId: self.instance.id,
+            sorting: [{ "sortBy": "startTime", "sortOrder": "desc" }]
+          }
       );
       milestones.forEach(milestone => {
         let current = statistics.findIndex(item => item.activityId === milestone.activityId);
