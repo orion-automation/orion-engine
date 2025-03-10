@@ -52,7 +52,7 @@
     "nprogress": "^0.2.0",
     "qs": "^6.11.0",
     "vue": "^2.6.11",
-    "vue-formio-eorion": "^0.0.4",
+    "vue-formio-eorion": "^0.0.5",
     "vue-i18n": "^8.28.2",
     "vue-router": "^3.5.1",
     "vuelidate": "^0.7.6",
