@@ -28,12 +28,14 @@
           <v-toolbar-title>{{ tableTitle }}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-text-field placeholder="搜索" dense v-model="searchVal" hide-details
+                        v-if="tableEnableSearchInput"
                         style="width: 300px;margin-right: 20px;flex: none"/>
 
           <v-btn-toggle dense color="#444262">
             <v-btn
               color="#444262"
               @click="exportData"
+              v-if="tableEnableExportBtn"
               outlined
             >
               {{ $t('exportTitle') }}
@@ -148,12 +150,14 @@
         >
           <v-toolbar-title v-if="tableTitle" style="margin-right: 20px">{{ tableTitle }}</v-toolbar-title>
           <v-text-field placeholder="搜索" dense v-model="searchVal" hide-details
+                        v-if="tableEnableSearchInput"
                         style="width: 300px;margin-right: 20px;flex: none"/>
           <v-spacer></v-spacer>
           <v-btn-toggle dense color="#444262">
             <v-btn
               color="#444262"
               @click="exportData"
+              v-if="tableEnableExportBtn"
               outlined
             >
               {{ $t('exportTitle') }}
@@ -315,6 +319,8 @@ export default {
       dataSource: "url",
       nocoDbConditions: [],
       tableEnableGroupBy: false,
+      tableEnableSearchInput: false,
+      tableEnableExportBtn: false,
     };
   },
   mounted() {
@@ -346,6 +352,8 @@ export default {
       // 分组，取消分页
       self.pageSize = -1;
     }
+    self.tableEnableSearchInput = self.component["table-enable-search-input"];
+    self.tableEnableExportBtn = self.component["table-enable-export-btn"];
     self.getTableItems();
   },
   computed: {
@@ -553,7 +561,9 @@ export default {
         });
         // 搜索
         if (self.dataSource === "url") {
-          params[`${self.searchKey}`] = self.searchVal;
+          if (self.tableEnableSearchInput && self.searchKey && self.searchVal && self.searchVal.length>0){
+            params[`${self.searchKey}`] = self.searchVal;
+          }
         } else if (self.dataSource === "noco_db") {
           if (self.nocoDbConditions) {
             let where = "";
@@ -588,7 +598,7 @@ export default {
         params[`${self.offsetKey}`] = (page - 1) * itemsPerPage;
         // records
         let requestConfig = {
-          url: self.dataSourceUrl,
+          url: self.parseTpl(self.dataSourceUrl, {data: self.rootValue}, null),
           params,
           headers,
           method: self.requestMethod
