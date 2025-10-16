@@ -20,6 +20,7 @@ let translationPlugin = new CKEditorTranslationsPlugin({
 });
 
 module.exports = {
+    outputDir: "../classes/static",
     runtimeCompiler: true,
     chainWebpack: config => {
         if (isProduction) {

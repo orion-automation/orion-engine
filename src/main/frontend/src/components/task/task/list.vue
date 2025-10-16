@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex flex-column" style="width: 100%; height: 100%;border-top: 1px solid rgb(187, 187, 187)">
     <div
-      class="d-flex flex-row"
-      style="
+        class="d-flex flex-row"
+        style="
         width: 100%;
         padding: 14px 15px;
         font-size: 13px;
@@ -12,8 +12,8 @@
       "
     >
       <v-breadcrumbs
-        class="id-breadcrumbs" :items="idBreadcrumbs"
-        style="background-color: #e8eff7;padding: 0;border: none" divider="|" />
+          class="id-breadcrumbs" :items="idBreadcrumbs"
+          style="background-color: #e8eff7;padding: 0;border: none" divider="|" />
       <span class="badge badge-instance"> <v-icon size="15" left color="white">mdi-check-network-outline</v-icon>{{
           badge.playCount
         }}</span>
@@ -28,12 +28,12 @@
       <v-navigation-drawer v-model="drawerOpen" :width="drawerOpen ? 350 : 0" mobile-breakpoint="0">
         <div class="d-flex flex-column" style="height: 100%;width: 100%">
           <div
-            class="d-flex flex-row custom-drawer-item"
-            style="justify-content: space-between;padding: 0 25px;height: 43px">
+              class="d-flex flex-row custom-drawer-item"
+              style="justify-content: space-between;padding: 0 25px;height: 43px">
             <v-btn
-              icon
-              @click="searchDialog.display=true"
-              style="border-right: none"
+                icon
+                @click="searchDialog.display=true"
+                style="border-right: none"
             >
               <v-badge bordered dot overlap color="#FF7754"
                        :value="tasks.nameLike||searchDialog.taskId||searchDialog.processDefinitionKeyIn">
@@ -53,16 +53,16 @@
               </template>
 
               <v-list
-                style="cursor: pointer; padding: 0px 0px"
-                class="menu-list"
-                dense
+                  style="cursor: pointer; padding: 0px 0px"
+                  class="menu-list"
+                  dense
               >
                 <v-list-item
-                  v-for="item in taskOwnerFilters"
-                  :key="item.id">
+                    v-for="item in taskOwnerFilters"
+                    :key="item.id">
                   <v-list-item-title
-                    :class="{ current: taskOwnerFilter===item.id,disabled:item.disable}"
-                    @click="onOwnerFilterItemClick(item)"
+                      :class="{ current: taskOwnerFilter===item.id,disabled:item.disable}"
+                      @click="onOwnerFilterItemClick(item)"
                   >
                     <v-icon size="14" style="margin-right: 6px">{{ item.icon }}</v-icon>
                     <span>{{ item.name }}</span>
@@ -83,16 +83,16 @@
               </template>
 
               <v-list
-                style="cursor: pointer; padding: 0px 0px"
-                class="menu-list"
-                dense
+                  style="cursor: pointer; padding: 0px 0px"
+                  class="menu-list"
+                  dense
               >
                 <v-list-item
-                  v-for="item in taskPriorityFilters"
-                  :key="item.id">
+                    v-for="item in taskPriorityFilters"
+                    :key="item.id">
                   <v-list-item-title
-                    :class="{ current: taskPriorityFilter===item.id,disabled:item.disable}"
-                    @click="taskPriorityFilter=item.id"
+                      :class="{ current: taskPriorityFilter===item.id,disabled:item.disable}"
+                      @click="taskPriorityFilter=item.id"
                   >
                     <v-icon size="14" style="margin-right: 6px" :color="item.color">{{ item.icon }}</v-icon>
                     <span>{{ item.name }}</span>
@@ -113,16 +113,16 @@
               </template>
 
               <v-list
-                style="cursor: pointer; padding: 0px 0px"
-                class="menu-list"
-                dense
+                  style="cursor: pointer; padding: 0px 0px"
+                  class="menu-list"
+                  dense
               >
                 <v-list-item
-                  v-for="item in taskDueFilters"
-                  :key="item.id">
+                    v-for="item in taskDueFilters"
+                    :key="item.id">
                   <v-list-item-title
-                    :class="{ current: taskDueFilter===item.id,disabled:item.disable}"
-                    @click="taskDueFilter=item.id"
+                      :class="{ current: taskDueFilter===item.id,disabled:item.disable}"
+                      @click="taskDueFilter=item.id"
                   >
                     <v-icon size="14" style="margin-right: 6px" :color="item.color">{{ item.icon }}</v-icon>
                     <span>{{ item.name }}</span>
@@ -131,32 +131,32 @@
               </v-list>
             </v-menu>
             <task-sort-menu
-              :quick-filter="quickFilter"
-              :tasks-active="tasks.active"
-              :tasks-sort-order="tasks.sortOrder"
-              :mobile-mode="false"
-              @setSort="setSort"
-              @setActive="setActive"
+                :quick-filter="quickFilter"
+                :tasks-active="tasks.active"
+                :tasks-sort-order="tasks.sortOrder"
+                :mobile-mode="false"
+                @setSort="setSort"
+                @setActive="setActive"
             />
           </div>
           <div style="flex:1;height: 0;overflow-y: auto">
             <template v-if="!calendar.display">
               <v-list
-                three-line
-                style="padding: 0 0; border-radius: 6px"
-                v-if="!calendar.display"
+                  three-line
+                  style="padding: 0 0; border-radius: 6px"
+                  v-if="!calendar.display"
               >
                 <task-item
-                  v-for="item in tasks.items"
-                  :key="item.id"
-                  :selected="task&&task.id===item.id"
-                  @onItemClick="onTaskItemClick"
-                  :task="item" />
+                    v-for="item in tasks.items"
+                    :key="item.id"
+                    :selected="task&&task.id===item.id"
+                    @onItemClick="onTaskItemClick"
+                    :task="item" />
               </v-list>
               <infinite-loading
-                v-if="!calendar.display"
-                @infinite="getTasksPage"
-                :identifier="tasks.infiniteId"
+                  v-if="!calendar.display"
+                  @infinite="getTasksPage"
+                  :identifier="tasks.infiniteId"
               >
                 <template #no-more>
                   <div class="d-flex flex-row infinite-more-container">
@@ -169,19 +169,19 @@
             </template>
             <template v-else>
               <v-list
-                three-line
-                style="padding: 0 0; border-radius: 6px"
-                v-if="calendar.display"
+                  three-line
+                  style="padding: 0 0; border-radius: 6px"
+                  v-if="calendar.display"
               >
                 <task-item
-                  v-for="item in calendar.rangeItems"
-                  :key="item.id"
-                  :selected="task&&task.id===item.id"
-                  @onItemClick="onTaskItemClick"
-                  :task="item" />
+                    v-for="item in calendar.rangeItems"
+                    :key="item.id"
+                    :selected="task&&task.id===item.id"
+                    @onItemClick="onTaskItemClick"
+                    :task="item" />
                 <v-list-item
-                  v-show="!calendar.rangeItems.length"
-                  style="min-height: unset; padding: 10px 18px"
+                    v-show="!calendar.rangeItems.length"
+                    style="min-height: unset; padding: 10px 18px"
                 >
                   {{ $t("noData") }}
                 </v-list-item>
@@ -190,17 +190,17 @@
           </div>
           <div class="d-flex flex-column" style="padding: 0">
             <task-calendar
-              v-show="calendar.display"
-              :items="calendar.items"
-              @setRange="setRange"
+                v-show="calendar.display"
+                :items="calendar.items"
+                @setRange="setRange"
             />
             <div
-              style="border-top: 1px solid rgba(187, 187, 187, 1);
+                style="border-top: 1px solid rgba(187, 187, 187, 1);
               width: 100%;
               height: 43px;
               align-items: center;justify-content: center"
-              @click="calendar.display=!calendar.display"
-              class="d-flex flex-row">
+                @click="calendar.display=!calendar.display"
+                class="d-flex flex-row">
               <v-btn text style="font-weight:normal; color:#444262">
 
                 <v-icon left>mdi-calendar-multiselect</v-icon>
@@ -213,13 +213,13 @@
         </div>
       </v-navigation-drawer>
       <div
-        class="d-flex flex-column"
-        style="width: 0; flex: 1; height: 100%; background-color: white"
-        ref="resizeLayoutBottom"
+          class="d-flex flex-column"
+          style="width: 0; flex: 1; height: 100%; background-color: white"
+          ref="resizeLayoutBottom"
       >
         <div
-          class="d-flex flex-row custom-drawer-item"
-          style="
+            class="d-flex flex-row custom-drawer-item"
+            style="
             padding-top: 0;
             padding-bottom: 0;
             padding-right: 0;
@@ -236,69 +236,80 @@
           <v-spacer />
           <v-divider vertical />
           <v-btn
-            text
-            style="border-right: none; font-weight:normal; color:#444262"
-            :disabled="!formData"
-            v-print="printObj"
-            color="#444262"
+              text
+              style="border-right: none; font-weight:normal; color:#444262"
+              :disabled="!formData"
+              v-print="printObj"
+              color="#444262"
           >
             <v-icon left small color="#FA4F07">mdi-printer-outline</v-icon>
             打印
           </v-btn>
           <v-divider vertical />
           <v-btn
-            text
-            style="border-right: none; font-weight:normal; color:#444262"
-            :disabled="this.task.endTime || this.computedIsDelegatedTask"
-            @click="setFollowUp"
-            color="#444262"
+              text
+              style="border-right: none; font-weight:normal; color:#444262"
+              :disabled="this.task.endTime || this.computedIsDelegatedTask"
+              @click="setFollowUp"
+              color="#444262"
           >
             <v-icon left small color="#FA4F07">mdi-alarm-plus</v-icon>
             {{ $t("setNotify") }}
           </v-btn>
           <v-divider vertical />
+          <v-btn
+              text
+              v-if="!task.endTime"
+              style="border-right: none; font-weight:normal; color:#444262"
+              color="#444262"
+              @click="onSetPriorityClick"
+          >
+            <v-icon left small :color="judgePriority(task.priority).iconColor">{{ judgePriority(task.priority).icon }}
+            </v-icon>
+            {{ $t("priority") }}
+          </v-btn>
+          <v-divider vertical v-if="!task.endTime"/>
           <template v-if="!task.endTime">
             <v-btn
-              text
-              style="border-right: none; font-weight:normal; color:#444262"
-              @click="onSetPriorityClick"
-              color="#444262"
+                text
+                style="border-right: none; font-weight:normal; color:#444262;display: none"
+                @click="onSetPriorityClick"
+                color="#444262"
             >
               <v-icon left small :color="judgePriority(task.priority).iconColor">{{ judgePriority(task.priority).icon }}
               </v-icon>
               {{ $t("priority") }}
             </v-btn>
-            <v-divider vertical />
           </template>
           <v-btn
-            text
-            v-if="!task.endTime &&
+              text
+              v-if="!task.endTime &&
         !(computedIsDelegatedTask && task.assignee!==userId) &&
         task.assignee === userId"
-            style="border-right: none; font-weight:normal; color:#444262"
-            color="#444262"
-            @click="onCommitTask"
+              style="border-right: none; font-weight:normal; color:#444262"
+              color="#444262"
+              @click="onCommitTask"
           >
             <v-icon left small color="#0F40F5">mdi-send</v-icon>
             {{ $t("execute") }}
           </v-btn>
           <v-btn
-            text
-            v-if="!task.endTime && !task.assignee"
-            @click="onClaimClick"
-            style="border-right: none; font-weight:normal; color:#444262"
-            color="#444262"
+              text
+              v-if="!task.endTime && !task.assignee"
+              @click="onClaimClick"
+              style="border-right: none; font-weight:normal; color:#444262"
+              color="#444262"
           >
             <v-icon left small color="#0F40F5">mdi-tray-arrow-down</v-icon>
             {{ $t("claim") }}
           </v-btn>
           <v-divider vertical />
           <v-btn
-            text
-            style="border-right: none; font-weight:normal; color:#444262"
-            :disabled="this.task.endTime || this.computedIsDelegatedTask"
-            @click="onTaskDelegtateClick"
-            color="#444262"
+              text
+              style="border-right: none; font-weight:normal; color:#444262"
+              :disabled="this.task.endTime || this.computedIsDelegatedTask"
+              @click="onTaskDelegtateClick"
+              color="#444262"
           >
             <v-icon left small color="#0F40F5">mdi-share-all</v-icon>
             {{ $t("delegate1") }}
@@ -307,23 +318,23 @@
           <v-menu bottom offset-y z-index="100">
             <template #activator="{ on, attrs }">
               <v-btn
-                v-bind="attrs"
-                v-on="on"
-                icon
-                style="border-right: none"
-                color="#83829A"
+                  v-bind="attrs"
+                  v-on="on"
+                  icon
+                  style="border-right: none"
+                  color="#83829A"
               >
                 <v-icon small>mdi-dots-horizontal</v-icon>
               </v-btn>
             </template>
 
             <v-list
-              style="cursor: pointer; padding: 0px 0px"
-              class="menu-list"
-              dense
+                style="cursor: pointer; padding: 0px 0px"
+                class="menu-list"
+                dense
             >
               <v-list-item
-                style="min-height: 36px"
+                  style="min-height: 36px"
               >
                 <v-list-item-title>
                   {{ $t("noMoreTools") }}
@@ -333,29 +344,29 @@
           </v-menu>
         </div>
         <div
-          class="d-flex flex-column"
-          style="flex: 1;height: 0;background-color: white;padding: 15px;overflow-y: auto">
+            class="d-flex flex-column"
+            style="flex: 1;height: 0;background-color: white;padding: 15px;overflow-y: auto">
           <instance-milestone :instance="instance" style="margin-bottom: 10px" />
           <div
-            @click="onClickProcessInstance(instance.processDefinitionId,instance.processDefinitionKey,instance.id)"
-            class="d-flex flex-row" style="align-items: center;font-size: 14px;cursor:pointer;">
+              @click="onClickProcessInstance(instance.processDefinitionId,instance.processDefinitionKey,instance.id)"
+              class="d-flex flex-row" style="align-items: center;font-size: 14px;cursor:pointer;">
             <i
-              :class="instance.icon"
-              style="size: 1em; color: #e6e4e6;font-size: 15px;margin-right: 3px"
-              :style="{color:instance.iconColor}"
+                :class="instance.icon"
+                style="size: 1em; color: #e6e4e6;font-size: 15px;margin-right: 3px"
+                :style="{color:instance.iconColor}"
             ></i>
             <div style="color: #444262">#{{ instance.businessKey }}</div>
             <div
-              @click.stop="onClickProcessDefKey(instance.processDefinitionKey)"
-              style="color: #B1ABB6;padding-left: 5px;overflow: hidden;
+                @click.stop="onClickProcessDefKey(instance.processDefinitionKey)"
+                style="color: #B1ABB6;padding-left: 5px;overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;">
               {{ instance.processDefinitionName }}
             </div>
           </div>
           <div
-            class="d-flex"
-            style="padding: 5px 0; border-bottom: 1px solid #e6e4e6;font-size: 14px"
+              class="d-flex"
+              style="padding: 5px 0; border-bottom: 1px solid #e6e4e6;font-size: 14px"
           >
             <div style="flex: 1">
               <v-icon size="15" style="margin-right: 3px">mdi-plus</v-icon>
@@ -366,7 +377,7 @@
             <div style="flex: 1">
               <v-icon style="margin-right: 3px" size="15">mdi-account-check</v-icon>
               <span
-                style="color: #444262"> {{ instance.startUserId && instance.startUser ? `${instance.startUser.firstName} ${instance.startUser.lastName}` : "--"
+                  style="color: #444262"> {{ instance.startUserId && instance.startUser ? `${instance.startUser.firstName} ${instance.startUser.lastName}` : "--"
                 }}</span>
             </div>
           </div>
@@ -393,24 +404,24 @@
               <v-menu bottom offset-y v-if="task.owner === userId" left>
                 <template #activator="{ on, attrs }">
                   <v-icon
-                    v-bind="attrs"
-                    v-on="on"
-                    size="18"
-                    color="#444262"
-                    style="flex: 0; margin-right:6px"
+                      v-bind="attrs"
+                      v-on="on"
+                      size="18"
+                      color="#444262"
+                      style="flex: 0; margin-right:6px"
                   >
                     mdi-dots-vertical
                   </v-icon>
                 </template>
 
                 <v-list
-                  style="cursor: pointer; padding: 0px 0px"
-                  class="menu-list"
-                  dense
+                    style="cursor: pointer; padding: 0px 0px"
+                    class="menu-list"
+                    dense
                 >
                   <v-list-item>
                     <v-list-item-title
-                      @click="onTaskResolveDelegtateClick"
+                        @click="onTaskResolveDelegtateClick"
                     >
                       <span>{{ $t("backAuth") }}</span>
                     </v-list-item-title>
@@ -419,12 +430,12 @@
               </v-menu>
             </div>
             <v-textarea
-              hide-details auto-grow dense
-              rows="1"
-              style="margin-top: 14px; margin-bottom:8px;font-size: 14px"
-              outlined
-              v-model="localVariables['bpezDelegateComments']"
-              readonly />
+                hide-details auto-grow dense
+                rows="1"
+                style="margin-top: 14px; margin-bottom:8px;font-size: 14px"
+                outlined
+                v-model="localVariables['bpezDelegateComments']"
+                readonly />
           </div>
           <div class="d-flex flex-row" style="padding: 5px 0;;font-size: 14px">
             <div style="flex: 1;align-items: center" class="d-flex flex-row">
@@ -436,8 +447,8 @@
                 <span style="color: #444262">
               {{
                     utils.formatDateTime(
-                      task.created || task.startTime,
-                      "YYYY-MM-DD HH:mm"
+                        task.created || task.startTime,
+                        "YYYY-MM-DD HH:mm"
                     ) || "--:--"
                   }}</span
                 ></div>
@@ -477,26 +488,26 @@
           <div class="formioClass"
                style="flex: 1;height: 0;background-color: white;border-radius: 6px;margin-top: 12px">
             <formio
-              v-if="formData"
-              style="height: 100%"
-              ref="formTask"
-              class="formioClass"
-              id="formTaskDetail"
-              :form="formData"
-              :options="{readOnly:!!task.endTime || (!task.endTime && !task.assignee), language: 'zh',noAlerts:true}"
-              :submission="formValue"></formio>
+                v-if="formData"
+                style="height: 100%"
+                ref="formTask"
+                class="formioClass"
+                id="formTaskDetail"
+                :form="formData"
+                :options="{readOnly:!!task.endTime || (!task.endTime && !task.assignee), language: 'zh',noAlerts:true}"
+                :submission="formValue"></formio>
             <div
-              v-else
-              class="d-flex flex-row"
-              style="height: 100%;align-items: center;justify-content: center;color: #101010;font-size: 14px;min-height: 50px">
+                v-else
+                class="d-flex flex-row"
+                style="height: 100%;align-items: center;justify-content: center;color: #101010;font-size: 14px;min-height: 50px">
               {{ $t("noFormConfig") }}
               <v-icon color="#83829A" right size="14">mdi-google-downasaur</v-icon>
             </div>
           </div>
         </div>
         <div
-          class="d-flex flex-row custom-drawer-item"
-          style="
+            class="d-flex flex-row custom-drawer-item"
+            style="
             padding-top: 0;
             padding-bottom: 0;
             padding-right: 0;
@@ -506,20 +517,20 @@
           <v-spacer />
           <v-divider vertical />
           <v-btn
-            text
-            style="border-right: none;  font-weight:normal; color:#444262"
-            color="#444262"
-            @click="onStartAssociationsClick"
+              text
+              style="border-right: none;  font-weight:normal; color:#444262"
+              color="#444262"
+              @click="onStartAssociationsClick"
           >
             <v-icon left small color="#FA4F07">mdi-all-inclusive-box</v-icon>
             {{ $t("linkApp") }}
           </v-btn>
           <v-divider vertical />
           <v-btn
-            text
-            style="border-right: none;  font-weight:normal; color:#444262"
-            color="#444262"
-            @click="bpmnDialog.display=true"
+              text
+              style="border-right: none;  font-weight:normal; color:#444262"
+              color="#444262"
+              @click="bpmnDialog.display=true"
           >
             <v-icon left small color="#57928D">mdi-map-legend</v-icon>
             {{ $t("bpmnView") }}
@@ -527,59 +538,59 @@
         </div>
       </div>
       <task-detail-sider
-        v-if="task && task.id"
-        :instance="instance"
-        @onRejectTask="onRejectTask"
-        @selectTask="onSimilarTaskItemClick"
-        :task="task" />
+          v-if="task && task.id"
+          :instance="instance"
+          @onRejectTask="onRejectTask"
+          @selectTask="onSimilarTaskItemClick"
+          :task="task" />
     </div>
     <task-priority-set-menu
-      ref="taskPrioritySetMenuRef"
-      @onSetPrioritySuccess="onSetPrioritySuccess"
-      v-if="task && task.id"
-      :task-id="task.id" />
+        ref="taskPrioritySetMenuRef"
+        @onSetPrioritySuccess="onSetPrioritySuccess"
+        v-if="task && task.id"
+        :task-id="task.id" />
     <application-associations
-      v-if="process.id"
-      ref="associationsDialogRef"
-      :title="$t('startLinKApp')"
-      :current-app="process"
-      @onItemClick="onAssociationItemClick"
-      :process-deployment-id="process.deploymentId"
-      :process-def-key="process.key" />
+        v-if="process.id"
+        ref="associationsDialogRef"
+        :title="$t('startLinKApp')"
+        :current-app="process"
+        @onItemClick="onAssociationItemClick"
+        :process-deployment-id="process.deploymentId"
+        :process-def-key="process.key" />
     <task-delegtate-dialog
-      ref="taskDelegtateDialogRef"
-      @onTaskDelegtateSuccess="onTaskDelegtateSuccess"
-      :task-id="task.id"
-      v-if="task && task.id" />
+        ref="taskDelegtateDialogRef"
+        @onTaskDelegtateSuccess="onTaskDelegtateSuccess"
+        :task-id="task.id"
+        v-if="task && task.id" />
     <task-resolve-delegtate-dialog
-      ref="taskResolveDelegtateDialogRef"
-      @onResolveDelegtateTaskSuccess="onTaskDelegtateSuccess"
-      :task-id="task.id"
-      v-if="task && task.id" />
+        ref="taskResolveDelegtateDialogRef"
+        @onResolveDelegtateTaskSuccess="onTaskDelegtateSuccess"
+        :task-id="task.id"
+        v-if="task && task.id" />
     <task-claim-dialog
-      ref="taskClaimDialogDialogRef"
-      @onClaimSuccess="onTaskClaimSuccess"
-      :task-id="task.id"
-      v-if="task && task.id" />
+        ref="taskClaimDialogDialogRef"
+        @onClaimSuccess="onTaskClaimSuccess"
+        :task-id="task.id"
+        v-if="task && task.id" />
     <flow-calendar-dialog ref="flowCalendarDialogRef" @onFollowSuccess="onFollowSuccess" />
     <v-dialog v-model="searchDialog.display" width="431">
       <v-card>
         <v-card-title style="color:#312651">{{ $t("search") }}</v-card-title>
         <v-card-text>
           <v-text-field
-            v-model="tasks.nameLike"
-            label=""
-            :placeholder="$t('inputKeySearchTask')"
+              v-model="tasks.nameLike"
+              label=""
+              :placeholder="$t('inputKeySearchTask')"
           />
           <v-text-field
-            v-model="searchDialog.taskId"
-            label=""
-            :placeholder="$t('taskId')"
+              v-model="searchDialog.taskId"
+              label=""
+              :placeholder="$t('taskId')"
           />
           <v-text-field
-            v-model="searchDialog.processDefinitionKeyIn"
-            label=""
-            :placeholder="$t('processDefinitionKeyIn')"
+              v-model="searchDialog.processDefinitionKeyIn"
+              label=""
+              :placeholder="$t('processDefinitionKeyIn')"
           />
         </v-card-text>
         <v-card-actions>
@@ -599,12 +610,12 @@
       <v-card>
         <v-card-text style="padding: 0">
           <vue-bpmn
-            ref="vueBpmnViwer"
-            :node-properties="bpmnDialog.nodeProperties"
-            :diagram-xml="bpmnDialog.xml"
-            style="height: 70vh"
-            background-color="#FFFFFF"
-            :options="{ overlays: { defaults: { scale: true } } }" />
+              ref="vueBpmnViwer"
+              :node-properties="bpmnDialog.nodeProperties"
+              :diagram-xml="bpmnDialog.xml"
+              style="height: 70vh"
+              background-color="#FFFFFF"
+              :options="{ overlays: { defaults: { scale: true } } }" />
         </v-card-text>
         <v-card-actions style="padding: 0">
           <v-spacer />
@@ -729,12 +740,12 @@ export default {
     countResult = await taskRequest.postTaskCount("", null, { assignee: self.userId });
     self.badge.playCount = countResult.count;
     countResult = await taskRequest.postTaskCount("", null,
-      {
-        assignee: self.userId, dueBefore: utils.formatDateTime(
-          new Date(),
-          "YYYY-MM-DDT24:00:00.SSS+0800"
-        )
-      });
+        {
+          assignee: self.userId, dueBefore: utils.formatDateTime(
+              new Date(),
+              "YYYY-MM-DDT24:00:00.SSS+0800"
+          )
+        });
     self.badge.afterCount = countResult.count;
     countResult = await taskRequest.postTaskCount("", null, {
       candidateUser: self.userId
@@ -750,7 +761,7 @@ export default {
     },
     goIndex() {
       this.noTaskDialog.display=false;
-      this.$router.replace("/home/index");
+      this.$router.replace("/task/home");
     },
     onRejectTask() {
       let self = this;
@@ -876,8 +887,8 @@ export default {
       }
       if (self.taskDueFilter) {
         let currentTime = utils.formatDateTime(
-          new Date(),
-          "YYYY-MM-DDT24:00:00.SSS+0800"
+            new Date(),
+            "YYYY-MM-DDT24:00:00.SSS+0800"
         );
         switch (self.taskDueFilter) {
           case "before":
@@ -1020,9 +1031,9 @@ export default {
         if (val) {
           let response = await processRequest.getProcessXml(self.task.processDefinitionId);
           let statistics = await processRequest.getProcessStatistics(
-            "history",
-            self.task.processDefinitionId,
-            self.task.processInstanceId
+              "history",
+              self.task.processDefinitionId,
+              self.task.processInstanceId
           );
           let nodeProperties = {};
 
@@ -1070,8 +1081,8 @@ export default {
     hasSearch() {
       let self=this;
       return (self.tasks.nameLike&&self.tasks.nameLike.length>0)||
-        (self.searchDialog.taskId&&self.searchDialog.taskId.length>0)||
-        (self.searchDialog.processDefinitionKeyIn&&self.searchDialog.processDefinitionKeyIn.length>0);
+          (self.searchDialog.taskId&&self.searchDialog.taskId.length>0)||
+          (self.searchDialog.processDefinitionKeyIn&&self.searchDialog.processDefinitionKeyIn.length>0);
     },
   },
   components: { TaskDetailSider, FlowCalendarDialog, VueBpmn, InstanceMilestone }

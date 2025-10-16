@@ -6,6 +6,8 @@
 
 # ORION Engine
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 ORION Engine 是一款面向未来的智能化业务流程编排引擎，提供强大的低代码开发能力，支持 AI 赋能与自动化集成，帮助企业快速构建和优化业务流程。
 
 ORION Engine is a next-generation intelligent business process orchestration engine that offers powerful low-code development capabilities, 
@@ -86,6 +88,13 @@ For example:
 - using other databases
 - change Spring Boot application configurations
 - change Orion Automation Engine configurations
+
+# Supported DB
+
+* H2
+* MySQL
+* PostgreSQL
+* Oracle
 
 # Plugins
 

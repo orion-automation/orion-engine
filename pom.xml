@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.eorion.bo</groupId>
     <artifactId>engine</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <name>orion engine</name>
     <description>orion engine</description>
     <url/>
@@ -50,7 +50,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <graalvm.version>22.3.3</graalvm.version>
         <groovy.version>4.0.22</groovy.version>
-        <enhancement.plugin.version>0.1.0</enhancement.plugin.version>
+        <enhancement.plugin.version>0.2.0</enhancement.plugin.version>
         <camunda.version>7.22.0</camunda.version>
     </properties>
 
@@ -140,13 +140,13 @@
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>email-incident-notification</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.1.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>external-launcher</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.1.0</version>
         </dependency>
 
         <dependency>

@@ -21,14 +21,6 @@ export default {
     });
   },
 
-  async getEnhancementProcessMilestoneByDefId(processDefId) {
-    return await request({
-      baseURL: process.env.VUE_APP_ENHANCEMENT_API,
-      url: `process-definition-id/${processDefId}/process-milestone`,
-      method: "get"
-    });
-  },
-
   async getTaskCountByProcessKey(key, userId) {
     let taskCount = await taskRequest.postTaskCount("", null,
         { processDefinitionKey: key, assignee: userId }

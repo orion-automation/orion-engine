@@ -1,6 +1,6 @@
 {
   "name": "bpez-all",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -41,7 +41,7 @@
     "@ckeditor/ckeditor5-vue2": "^3.0.1",
     "@mdi/js": "7.2.96",
     "axios": "^0.21.1",
-    "bootstrap": "^5.1.0",
+    "bootstrap": "4.6.2",
     "core-js": "^3.6.5",
     "element-ui": "2.15.1",
     "jquery": "^3.6.1",
@@ -52,7 +52,7 @@
     "nprogress": "^0.2.0",
     "qs": "^6.11.0",
     "vue": "^2.6.11",
-    "vue-formio-eorion": "^0.0.3",
+    "vue-formio-eorion": "^0.0.5",
     "vue-i18n": "^8.28.2",
     "vue-router": "^3.5.1",
     "vuelidate": "^0.7.6",

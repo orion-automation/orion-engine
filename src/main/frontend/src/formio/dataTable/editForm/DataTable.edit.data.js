@@ -15,6 +15,18 @@ export default [
         defaultValue: false,
     },
     {
+        label: "启用搜索框",
+        key: "table-enable-search-input",
+        defaultValue: true,
+        type: "checkbox",
+    },
+    {
+        label: "启用导出",
+        key: "table-enable-export-btn",
+        defaultValue: true,
+        type: "checkbox",
+    },
+    {
         type: "panel",
         title: "数据源",
         weight: 10,
