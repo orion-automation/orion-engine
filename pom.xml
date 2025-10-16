@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.eorion.bo</groupId>
@@ -13,7 +13,7 @@
     <version>0.2.0</version>
     <name>orion engine</name>
     <description>orion engine</description>
-    <url/>
+    <url>https://github.com/orion-automation/orion-engine</url>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -50,8 +50,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <graalvm.version>22.3.3</graalvm.version>
         <groovy.version>4.0.22</groovy.version>
-        <enhancement.plugin.version>0.2.0</enhancement.plugin.version>
-        <camunda.version>7.22.0</camunda.version>
+        <camunda.version>7.24.0</camunda.version>
     </properties>
 
     <dependencyManagement>
@@ -140,43 +139,43 @@
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>email-incident-notification</artifactId>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>external-launcher</artifactId>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>collaboration</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.3.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>application</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.4.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>delegation</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.3.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>user-setting</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.3.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>process-draft</artifactId>
-            <version>${enhancement.plugin.version}</version>
+            <version>0.3.0</version>
         </dependency>
 
         <!-- camunda plugins -->
