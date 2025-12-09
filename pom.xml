@@ -92,6 +92,12 @@
             <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.14</version>
+        </dependency>
+
 
         <!-- Javascript Engine -->
         <dependency>
@@ -151,31 +157,31 @@
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>collaboration</artifactId>
-            <version>0.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.eorion.bo.enhancement</groupId>
-            <artifactId>application</artifactId>
             <version>0.4.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
+            <artifactId>application</artifactId>
+            <version>0.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>delegation</artifactId>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>user-setting</artifactId>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.eorion.bo.enhancement</groupId>
             <artifactId>process-draft</artifactId>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </dependency>
 
         <!-- camunda plugins -->
@@ -271,8 +277,6 @@
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
