@@ -1,5 +1,5 @@
 ---
-title: {{ env.TYPE }} tests failed in {{ env.RUN-ID }} of {{ env.REF }}
+title: "{{ env.TYPE }} tests failed in {{ env.RUN-ID }} of {{ env.REF }}"
 labels: failure
 ---
 A test failed occurs.
